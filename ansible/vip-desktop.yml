@@ -1,0 +1,6 @@
+- hosts: vip-eip,vip-ies-o,vip-ies-m,vip-ies-i,vip-npp,vip-sso-ipki
+  remote_user: vagrant
+  serial: 1
+  roles:
+    - jenkins
+    - jenkins-node
