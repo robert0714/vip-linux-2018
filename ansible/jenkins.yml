@@ -1,0 +1,6 @@
+- hosts: vip-devops
+  remote_user: vagrant
+  serial: 1
+  roles:
+    - jenkins
+    - jenkins-node
