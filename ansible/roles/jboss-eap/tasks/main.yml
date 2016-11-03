@@ -1,0 +1,16 @@
+---
+
+#### Create user
+- include: 00__prepare.yml
+  become: true
+
+#### Copy JBoss installation binaries
+- include: 01__copy_and_unpack.yml
+  become: true
+
+#### Check configuration changes in a clone directory
+- include: 02__configure.yml info="(02)" target_dir="{{ jboss_eap_check_dir }}"
+  become: true
+  register: clone
+
+

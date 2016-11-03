@@ -1,0 +1,41 @@
+---
+
+- name: "{{ jboss_eap_instance_name }} {{ info }} Check existence of the target dir ({{ target_dir }})"
+  stat:
+    path: "{{ target_dir }}"
+  register: conf_00
+
+# Initial creation of the standalone directory
+- block:
+
+  - name: "{{ jboss_eap_instance_name }} {{ info }} Copy the JBoss EAP standalone directory "
+    shell: "cp -Rfp {{ jboss_home }}/standalone {{ target_dir }}; chown {{ jboss.user }}:{{ jboss.group }} -R {{ target_dir }}"
+    register: conf_01
+
+  - name: "{{ jboss_eap_instance_name }} {{ info }} Copy instance specific standalone.conf"
+    copy:
+      remote_src: true
+      owner: "{{ jboss.user }}"
+      group: "{{ jboss.group }}"
+      src: "{{ jboss_home }}/bin/standalone.conf"
+      dest: "{{ target_dir }}/configuration/standalone.conf"
+
+  - name: "{{ jboss_eap_instance_name }} {{ info }} Create the service directory"
+    file:
+      path: "{{ target_dir }}/service"
+      owner: "{{ jboss.user }}"
+      group: "{{ jboss.group }}"
+      state: directory
+      mode: "0755"
+
+  - name: "{{ jboss_eap_instance_name }} {{ info }} Copy init.d script (jboss-as-standalone.sh)"
+    copy:
+      remote_src: true
+      owner: "{{ jboss.user }}"
+      group: "{{ jboss.group }}"
+      src: "{{ jboss_home }}/bin/init.d/jboss-eap-rhel.sh"
+#     src: "{{ jboss_home }}/bin/jboss-as-standalone.sh"      
+      dest: "{{ target_dir }}/service/jboss-as-standalone.sh"
+      mode: "0755"
+
+  when: conf_00.stat.isdir is undefined or conf_00.stat.isdir == False

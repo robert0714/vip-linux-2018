@@ -1,0 +1,1 @@
+ansible_ssh_private_key_file: /vagrant/.vagrant/machines/vip-ies-m/virtualbox/private_key
