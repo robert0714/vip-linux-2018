@@ -12,4 +12,5 @@ Usage
 
 
 General Deploying Jboss EAP 7.0
+<br/>
 ansible-playbook  /vagrant/ansible/vip-general.yml  -i /vagrant/ansible/hosts/prod
