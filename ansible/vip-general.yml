@@ -1,8 +1,9 @@
 - hosts: all
   remote_user: vagrant
   serial: 1
-  roles:
+  roles:    
     - common
     - oracle-java-develop
     - jboss-common
     - jboss-eap
+    - maintain-user
