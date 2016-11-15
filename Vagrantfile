@@ -82,7 +82,7 @@ Vagrant.configure(2) do |config|
       v.memory = 2048
     end
   end
-  config.vm.define "vip-freenas-o" do |d|
+    d.vm.define "vip-freenas-o" do |d|
     d.vm.box = "drajen/freenas9"
     d.vm.hostname = "vip-freenas-o"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.77", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
@@ -90,7 +90,7 @@ Vagrant.configure(2) do |config|
       v.memory = 2048
     end
   end
-  config.vm.define "vip-freenas-m" do |d|
+    d.vm.define "vip-freenas-m" do |d|
     d.vm.box = "drajen/freenas9"
     d.vm.hostname = "vip-freenas-m"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.78", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
@@ -98,7 +98,7 @@ Vagrant.configure(2) do |config|
       v.memory = 2048
     end
   end
-  config.vm.define "vip-freenas-i" do |d|
+    d.vm.define "vip-freenas-i" do |d|
     d.vm.box = "drajen/freenas9"
     d.vm.hostname = "vip-freenas-i"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.79", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
