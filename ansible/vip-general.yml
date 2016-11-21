@@ -4,6 +4,7 @@
   roles:    
     - common
     - oracle-java-develop
+    - maintain-user
     - jboss-common
     - jboss-eap
     - maintain-user
