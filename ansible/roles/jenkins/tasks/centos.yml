@@ -4,7 +4,7 @@
     mode: 0777
     recurse: yes
     state: directory
-  with_items: configs
+  with_items: "{{ configs }}"
   tags: [jenkins]
 
 - name: Container is running
