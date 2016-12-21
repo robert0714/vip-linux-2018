@@ -18,3 +18,7 @@ ansible-playbook  /vagrant/ansible/vip-general.yml  -i /vagrant/ansible/hosts/si
 ansible-playbook /vagrant/ansible/jenkins.yml -i /vagrant/ansible/hosts/sit
 <br/>
 ansible-playbook /vagrant/ansible/docker.yml -i /vagrant/ansible/hosts/sit
+
+2016.12.21
+====================
+centos 7.2升級到7.3之後，既有的centos/7 box images synchronized folder 會失敗，改成bento/centos-7.2,擇發生public_network不能正常啟動
