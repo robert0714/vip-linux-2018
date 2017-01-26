@@ -18,6 +18,7 @@ Vagrant.configure(2) do |config|
     d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
 #    d.vm.provision :shell, path: "scripts/bootstrap_ansible.sh"
     d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/vip-devops.yml -c local"
+    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
@@ -28,6 +29,7 @@ Vagrant.configure(2) do |config|
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.71", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
+    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
@@ -38,6 +40,7 @@ Vagrant.configure(2) do |config|
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.72", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
+    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
@@ -48,6 +51,7 @@ Vagrant.configure(2) do |config|
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.73", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
+    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
@@ -58,6 +62,7 @@ Vagrant.configure(2) do |config|
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.74", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
+    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
@@ -68,6 +73,7 @@ Vagrant.configure(2) do |config|
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.75", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
+    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
@@ -78,6 +84,7 @@ Vagrant.configure(2) do |config|
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.76", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #    default_router = "192.168.57.1"
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
+    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
