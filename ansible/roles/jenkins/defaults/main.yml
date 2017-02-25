@@ -97,3 +97,4 @@ plugins:
   - workflow-multibranch
   - docker-workflow
   - template-project
+  - wildfly-deployer
