@@ -1,0 +1,5 @@
+- name: Executable is present
+  get_url:
+    url: https://github.com/docker/machine/releases/download/v{{ docker_machine_version }}/docker-machine
+    dest: /usr/local/bin/docker-machine
+    mode: 0755

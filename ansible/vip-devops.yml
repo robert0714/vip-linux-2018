@@ -6,4 +6,5 @@
     - oracle-java-develop
     - docker
     - docker-compose
+    - docker-machine
     - jenkins
