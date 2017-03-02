@@ -10,14 +10,15 @@ Vagrant.configure(2) do |config|
  # config.vm.box ="ubuntu/trusty64"
   
   config.vm.define "vip-devops" do |d| 
-    d.vm.box = "bento/centos-7.3"
+#    d.vm.box = "bento/centos-7.3"
+    d.vm.box = "ubuntu/trusty64"
     d.vm.hostname = "vip-devops"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.70", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
-#   default_router = "192.168.57.1"
-#   d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
-    d.vm.provision :shell , inline: "systemctl restart network"
-    d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
-#    d.vm.provision :shell, path: "scripts/bootstrap_ansible.sh"
+    default_router = "192.168.57.1"
+    d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
+#    d.vm.provision :shell , inline: "systemctl restart network"
+#    d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
+    d.vm.provision :shell, path: "scripts/bootstrap_ansible.sh"
     d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/vip-devops.yml -c local"
     
     d.vm.provider "virtualbox" do |v|
