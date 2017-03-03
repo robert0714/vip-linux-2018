@@ -5,7 +5,6 @@ service_redeploy_src: service-redeploy-config.xml
 configs: [
   { src: "credentials.xml", dir: "/data/jenkins", file: "credentials.xml", mode: "0777" },
   { src: "hudson.tasks.Maven.xml", dir: "/data/jenkins", file: "hudson.tasks.Maven.xml", mode: "0777" },
-  { src: "sonarqube-config.xml", dir: "/data/jenkins/nodes/sonarqube", file: "config.xml", mode: "0777" },
   { src: "vip-devops-config.xml", dir: "/data/jenkins/nodes/vip-devops", file: "config.xml", mode: "0777" },
   { src: "vip-eip-config.xml", dir: "/data/jenkins/nodes/vip-eip", file: "config.xml", mode: "0777" },
   { src: "vip-ies-i-config.xml", dir: "/data/jenkins/nodes/vip-ies-i", file: "config.xml", mode: "0777" },
