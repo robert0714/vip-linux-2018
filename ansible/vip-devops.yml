@@ -7,5 +7,6 @@
     - docker
     - docker-compose
     - docker-machine
+    - maven
     - jenkins2-docker
     - jenkins-node
