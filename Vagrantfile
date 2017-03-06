@@ -19,10 +19,10 @@ Vagrant.configure(2) do |config|
 #    d.vm.provision :shell , inline: "systemctl restart network"
 #    d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
     d.vm.provision :shell, path: "scripts/bootstrap_ansible.sh"
-    d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/vip-devops.yml -c local"
-    
+    d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/vip-devops.yml -c local"    
     d.vm.provider "virtualbox" do |v|
-      v.memory = 2048
+      v.memory = 8192
+      v.cpus = 2
     end
   end
   config.vm.define "vip-eip" do |d| 
