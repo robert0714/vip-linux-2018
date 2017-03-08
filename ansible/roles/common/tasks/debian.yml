@@ -1,3 +1,8 @@
+- name:  set-timezone Asia/Taipei
+  shell: timedatectl set-timezone Asia/Taipei
+  ignore_errors: yes
+  tags:  [common]
+  
 - name: JQ is present
   apt:
     name: jq
@@ -19,6 +24,6 @@
     name: "{{ item }}"
     state: stopped
   ignore_errors: yes
-  with_items: obsolete_services
+  with_items: "{{ obsolete_services }}"
   tags: [common]
 
