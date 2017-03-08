@@ -144,7 +144,7 @@
 
 - name: Jenkins is reloaded
   uri:
-    url: http://{{ ip }}:8080/reload
+    url: http://{{ ip }}:8080/jenkins/reload
     method: POST
     status_code: 200,302
   when: jobs_result|changed
