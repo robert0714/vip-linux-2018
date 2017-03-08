@@ -1,5 +1,6 @@
 #- hosts: all
-- hosts: vip-sso-ipki
+#- hosts: vip-sso-ipki
+- hosts: localhost
   remote_user: vagrant
   serial: 1
   roles:    
@@ -8,4 +9,3 @@
     - maintain-user
     - jboss-common
     - jboss-eap
-    - maintain-user

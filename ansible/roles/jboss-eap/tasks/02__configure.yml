@@ -12,17 +12,17 @@
     shell: "cp -Rfp {{ jboss_home }}/standalone {{ target_dir }}; chown {{ jboss.user }}:{{ jboss.group }} -R {{ target_dir }}"
     register: conf_01
 
-  - name: "{{ jboss_eap_instance_name }} {{ info }} Copy instance specific standalone.conf"
-    copy:
-      remote_src: true
-      owner: "{{ jboss.user }}"
-      group: "{{ jboss.group }}"
-      src: "{{ jboss_home }}/bin/standalone.conf"
-      dest: "{{ target_dir }}/configuration/standalone.conf"
+#  - name: "{{ jboss_eap_instance_name }} {{ info }} Copy instance specific standalone.conf"
+#    copy:
+#      remote_src: true
+#      owner: "{{ jboss.user }}"
+#      group: "{{ jboss.group }}"
+#      src: "{{ jboss_home }}/bin/standalone.conf"
+#      dest: "{{ jboss_home}}/configuration/standalone.conf"
 
   - name: "{{ jboss_eap_instance_name }} {{ info }} Create the service directory"
     file:
-      path: "{{ target_dir }}/service"
+      path: "{{ jboss_home }}/service"
       owner: "{{ jboss.user }}"
       group: "{{ jboss.group }}"
       state: directory
@@ -35,7 +35,22 @@
       group: "{{ jboss.group }}"
       src: "{{ jboss_home }}/bin/init.d/jboss-eap-rhel.sh"
 #     src: "{{ jboss_home }}/bin/jboss-as-standalone.sh"      
-      dest: "{{ target_dir }}/service/jboss-as-standalone.sh"
+      dest: "{{ jboss_home }}/service/jboss-as-standalone.sh"
       mode: "0755"
+    when: conf_00.stat.isdir is undefined or conf_00.stat.isdir == False
 
-  when: conf_00.stat.isdir is undefined or conf_00.stat.isdir == False
+  - name: "{{ jboss_eap_instance_name }} {{ info }} Update {{ jboss_home }}/mgmt-*.properties"
+    lineinfile:
+      dest: "{{ item.dest }}"
+      line: "{{ item.line }}"
+    with_items:
+      - { dest: "{{ jboss_home}}/standalone/configuration/mgmt-users.properties", line: "{{ jboss_eap_instance_admin_user }}={{ jboss_eap_instance_admin_password }}" }
+      - { dest: "{{ jboss_home }}/standalone/configuration/mgmt-groups.properties", line: "{{ jboss_eap_instance_admin_user}}={{ jboss_eap_instance_admin_groups }}"  }
+    register: conf_10
+
+  - name: Templates are applied
+    template:
+      src: "{{ item.src }}"
+      dest: "{{ jboss_home }}/{{ item.dest }}"
+    with_items: "{{ standalone_templates }}"
+    

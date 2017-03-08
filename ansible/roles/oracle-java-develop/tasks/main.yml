@@ -36,3 +36,15 @@
 
 - include: install.yml
   when: (jdk_info.stdout|from_json).not_found
+
+- name: make sure /etc/profile.d exists
+  file: path=/etc/profile.d  state=directory
+  ignore_errors: yes
+
+- name: export JAVA_HOME
+  ignore_errors: yes
+  template:
+    src:  ../templates/java_home.sh.j2
+    dest: /etc/profile.d/java_home.sh
+    mode: "a+x"
+
