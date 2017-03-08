@@ -1,4 +1,4 @@
-- name:  set-timezone Asia/Taipei
+- name:  set-timezone Asia/Taipei sudo dpkg-reconfigure tzdata
   shell: timedatectl set-timezone Asia/Taipei
   ignore_errors: yes
   tags:  [common]
