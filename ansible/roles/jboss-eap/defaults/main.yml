@@ -4,10 +4,10 @@
 jboss_eap_instance_name: default
 
 # Red Hat JBoss EAP admin user name
-jboss_eap_instance_admin_user: redhat
+jboss_eap_instance_admin_user: admin
 
-# Red Hat JBoss EAP admin password ("redhat123!") hashed according to HEX( MD5( username ':' realm ':' password))
-jboss_eap_instance_admin_password: ba2caa9378fa898f1dea88804abe52b4
+# Red Hat JBoss EAP admin password ("admin") hashed according to HEX( MD5( username ':' realm ':' password))
+jboss_eap_instance_admin_password: c22052286cd5d72239a90fe193737253
 
 # Red Hat JBoss EAP admin user groups
 jboss_eap_instance_admin_groups:
