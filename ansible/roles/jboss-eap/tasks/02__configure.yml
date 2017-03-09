@@ -20,6 +20,12 @@
 #      src: "{{ jboss_home }}/bin/standalone.conf"
 #      dest: "{{ jboss_home}}/configuration/standalone.conf"
 
+  - name: export JBOSS_HOME
+    template:
+       src:  ../templates/jboss_home.sh.j2
+       dest: /etc/profile.d/jboss_home.sh
+       mode: "a+x"
+
   - name: "{{ jboss_eap_instance_name }} {{ info }} Create the service directory"
     file:
       path: "{{ jboss_home }}/service"
@@ -48,7 +54,7 @@
       - { dest: "{{ jboss_home }}/standalone/configuration/mgmt-groups.properties", line: "{{ jboss_eap_instance_admin_user}}={{ jboss_eap_instance_admin_groups }}"  }
     register: conf_10
 
-  - name: Templates are applied
+  - name: Templates are applied for Debian
     template:
       src: "{{ item.src }}"
       dest: "{{ jboss_home }}/{{ item.dest }}"

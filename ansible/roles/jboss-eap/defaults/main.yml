@@ -62,7 +62,7 @@ nexus_host: ""
 nexus_repository_id: ""
 
 gi_dir: "/tmp"
-
+jboss_as_standalone_sh: jboss-as-standalone.sh
 jboss_eap_golden_image_name: jboss-eap-7.0 
 #jboss_eap_instance_name: "petclinic"
 #jboss_eap_instance_standalone_file: "standalone-full-ha.xml"

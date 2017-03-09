@@ -1,5 +1,15 @@
 ---
 
+# Variable setup.
+- name: Include OS-Specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Define jboss_ip
+  set_fact:
+    jboss_ip: "{{ __jboss_ip }}"
+  when: jboss_ip is not defined
+
+
 #### Create user
 - include: 00__prepare.yml
   become: true
@@ -13,4 +23,18 @@
   become: true
   register: clone
 
+######2017.03.08#######
 
+#### Gracefully stop and remove the current instance.
+- include: 03__graceful_removal.yml
+  become: true
+  when: is_modified
+
+#### Create a new instance from scratch.
+#- include: 02__configure.yml info="(04)" target_dir="{{ jboss_eap_instance_dir }}"
+#  become: true
+#  when: is_modified
+
+#### Create Service Account
+- include: 05__register_service.yml
+  become: true

@@ -1,0 +1,3 @@
+# centos的{{ ansible_eth1.ipv4.address }}確實可以動態抓到所登入機器的ip ,Ubuntu無法使用，只能用 "{{ facter_ipaddress_eth1 }}"是否能使用
+---
+__jboss_ip: "{{ ansible_enp0s8.ipv4.address }}"

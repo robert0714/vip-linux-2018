@@ -386,10 +386,10 @@
 
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:{{ ip }}}"/>
+            <inet-address value="${jboss.bind.address.management:{{ jboss_ip }}}"/>
         </interface>
         <interface name="public">
-            <inet-address value="${jboss.bind.address:{{ ip }}}"/>
+            <inet-address value="${jboss.bind.address:{{ jboss_ip }}}"/>
         </interface>
     </interfaces>
 

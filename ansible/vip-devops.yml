@@ -3,7 +3,7 @@
   serial: 1
   roles:
     - common
-    - oracle-java-develop
+#    - oracle-java-develop
 #    - docker
 #    - docker-compose
 #    - docker-machine
