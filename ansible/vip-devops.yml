@@ -3,11 +3,11 @@
   serial: 1
   roles:
     - common
-#    - oracle-java-develop
-#    - docker
-#    - docker-compose
+    - oracle-java-develop
+    - docker
+    - docker-compose
 #    - docker-machine
-#    - maven
-#    - jenkins2-docker
-#    - jenkins-node
-#    - sonarqube
+    - maven
+    - jenkins2-docker
+    - jenkins-node
+    - sonarqube
