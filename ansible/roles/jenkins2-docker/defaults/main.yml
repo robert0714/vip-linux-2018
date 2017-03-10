@@ -22,7 +22,39 @@ jobs: [
     name: "ude-tutorials",
     service_name: "ude-tutorials",
     src: "ude-tutorials02-config.xml"
-  }
+  }, {
+    name: "71-0-vip-eip-infra",
+    service_name: "71-0-vip-eip-infra",
+    src: "71-0-vip-eip-infra-config.xml"
+  }, {
+    name: "71-a-vip-eip",
+    service_name: "71-a-vip-eip",
+    src: "71-a-vip-eip-config.xml"
+  }, {
+    name: "72-a-vip-ies",
+    service_name: "72-a-vip-ies",
+    src: "72-a-vip-ies-config.xml"
+  }, {
+    name: "72-b-vip-ies-o",
+    service_name: "72-b-vip-ies-o",
+    src: "72-b-vip-ies-o-config.xml"
+  }, {
+    name: "72-b-vip-ies-o-script",
+    service_name: "72-b-vip-ies-o-script",
+    src: "72-b-vip-ies-o-script-config.xml"
+  }, {
+    name: "72-c-vip-ies-m",
+    service_name: "72-c-vip-ies-m",
+    src: "72-c-vip-ies-m-config.xml"
+  }, {
+    name: "72-d-vip-ies-i",
+    service_name: "72-d-vip-ies-i",
+    src: "72-d-vip-ies-i-config.xml"
+  }, {
+    name: "76-a-vip-sso-web",
+    service_name: "76-a-vip-sso-web",
+    src: "76-a-vip-sso-web-config.xml"
+  } 
 ]
 
 jenkins_plugins: [ ]
