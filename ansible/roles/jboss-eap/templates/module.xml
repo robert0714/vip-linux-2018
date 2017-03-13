@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<module xmlns="urn:jboss:module:1.1" name="{{ jdbc_package_name }}">
+<module xmlns="urn:jboss:module:1.1" name="{{ item.jdbc_package_name }}">
   <resources>
-    <resource-root path="{{ jdbc_jar_name }}"/>
+    <resource-root path="{{ item.jdbc_jar_name }}"/>
   </resources>
   <dependencies>
     <module name="javax.api"/>
