@@ -77,3 +77,8 @@ standalone_templates: [
     dest: "standalone/configuration/standalone.xml"
   } 
 ]
+module_configs: [
+  { jdbc_package_name: "com.microsoft" , jdbc_jar_name: "mssql-jdbc-6.1.0.jre8.jar", src: "module.xml", dir: "/modules/com/microsoft/main", file: "module.xml", mode: "0644"  },
+  { jdbc_package_name: "com.mysql" , jdbc_jar_name: "mysql-connector-java-5.1.41.jar", src: "module.xml", dir: "/modules/com/mysql/main", file: "module.xml", mode: "0644"  }, 
+  { jdbc_package_name: "net.sourceforge.jtds" , jdbc_jar_name: "jtds-1.3.1.jar", src: "module.xml", dir: "/modules/net/sourceforge/jtds/main", file: "module.xml", mode: "0644"  }
+]
