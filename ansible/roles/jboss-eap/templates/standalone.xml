@@ -143,9 +143,19 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <drivers>
+                <drivers>                    
+                    <driver name="JTDS" module="net.sourceforge.jtds">
+                        <driver-class>net.sourceforge.jtds.jdbc.Driver</driver-class>
+                        <xa-datasource-class>net.sourceforge.jtds.jdbcx.JtdsDataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="mysql" module="com.mysql">
+                        <datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</datasource-class>
+                    </driver>                    
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="sqlserver" module="com.microsoft">
+                        <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
                     </driver>
                 </drivers>
             </datasources>
