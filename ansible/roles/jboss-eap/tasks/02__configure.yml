@@ -61,6 +61,14 @@
     with_items: "{{ standalone_templates }}"
 
 
+  - name:  jdbc module directories are created
+    file:
+      path: "{{ jboss_home }}/{{ item.dir }}"
+      mode: 0604
+      recurse: yes
+      state: directory
+    with_items: "{{ module_configs }}"
+
   - name: jdbc module configuration
     template:
       src: "{{ item.src }}"
