@@ -66,6 +66,8 @@
       path: "{{ jboss_home }}/{{ item.dir }}"
       mode: 0604
       recurse: yes
+      owner: "{{ jboss.user }}"
+      group: "{{ jboss.group }}"
       state: directory
     with_items: "{{ module_configs }}"
 
@@ -74,6 +76,8 @@
       src: "{{ item.src }}"
       dest: "{{ jboss_home }}/{{ item.dir }}"
       mode: 0604
+      owner: "{{ jboss.user }}"
+      group: "{{ jboss.group }}"
 #     recurse: yes
 #      state: directory
     with_items: "{{ module_configs }}"    
@@ -83,15 +87,21 @@
     get_url:
       url: http://central.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/6.1.0.jre8/mssql-jdbc-6.1.0.jre8.jar
       dest: "{{ jboss_home }}/modules/com/microsoft/main/mssql-jdbc-6.1.0.jre8.jar"
+      owner: "{{ jboss.user }}"
+      group: "{{ jboss.group }}"
 
   - name: MySQL jdbc driver
     get_url:
       url: http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar
       dest: "{{ jboss_home }}/modules/com/mysql/main/mysql-connector-java-5.1.41.jar"
+      owner: "{{ jboss.user }}"
+      group: "{{ jboss.group }}"
 
   - name: jtds sqlserver jdbc driver
     get_url:
       url: http://central.maven.org/maven2/net/sourceforge/jtds/jtds/1.3.1/jtds-1.3.1.jar
       dest: "{{ jboss_home }}/modules/net/sourceforge/jtds/main/jtds-1.3.1.jar"
+      owner: "{{ jboss.user }}"
+      group: "{{ jboss.group }}"
 
 
