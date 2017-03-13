@@ -59,6 +59,12 @@
       src: "{{ item.src }}"
       dest: "{{ jboss_home }}/{{ item.dest }}"
     with_items: "{{ standalone_templates }}"
+
+  - name: jdbc module configuration
+    template:
+      src: "{{ item.src }}"
+      dest: "{{ jboss_home }}/{{ item.dest }}"
+    with_items: "{{ module_configs }}"    
  
   - name: microsoft sqlserver jdbc driver
     get_url:
@@ -75,8 +81,4 @@
       url: http://central.maven.org/maven2/net/sourceforge/jtds/jtds/1.3.1/jtds-1.3.1.jar
       dest: "{{ jboss_home }}/modules/net/sourceforge/jtds/main/jtds-1.3.1.jar"
 
-  - name: jdbc module configuration
-    template:
-      src: "{{ item.src }}"
-      dest: "{{ jboss_home }}/{{ item.dest }}"
-    with_items: "{{ module_configs }}"  
+
