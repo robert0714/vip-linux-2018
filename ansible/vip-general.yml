@@ -6,6 +6,7 @@
   roles:    
     - common
     - oracle-java-develop
+    - jenkins-node
     - maintain-user
     - jboss-common
     - jboss-eap

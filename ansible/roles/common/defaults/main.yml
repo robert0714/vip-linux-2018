@@ -1,6 +1,6 @@
 hosts: [
   { host_ip: "192.168.57.70", host_name: "vip-devops"},
-  { host_ip: "10.100.98.201", host_name: "vip-eip"},
+  { host_ip: "192.168.57.71", host_name: "vip-eip"},
   { host_ip: "192.168.57.72", host_name: "vip-ies-o"},
   { host_ip: "192.168.57.73", host_name: "vip-ies-m"},
   { host_ip: "192.168.57.74", host_name: "vip-ies-i"},
