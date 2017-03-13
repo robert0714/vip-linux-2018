@@ -60,11 +60,16 @@
       dest: "{{ jboss_home }}/{{ item.dest }}"
     with_items: "{{ standalone_templates }}"
 
+
   - name: jdbc module configuration
     template:
       src: "{{ item.src }}"
-      dest: "{{ jboss_home }}/{{ item.dest }}"
+      dest: "{{ jboss_home }}/{{ item.dir }}"
+      mode: 0604
+#     recurse: yes
+#      state: directory
     with_items: "{{ module_configs }}"    
+
  
   - name: microsoft sqlserver jdbc driver
     get_url:
