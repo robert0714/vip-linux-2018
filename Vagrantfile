@@ -46,7 +46,7 @@ Vagrant.configure(2) do |config|
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
     d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
-      v.memory = 2048
+      v.memory = 8192
     end
   end
   config.vm.define "vip-ies-m" do |d| 
@@ -57,7 +57,7 @@ Vagrant.configure(2) do |config|
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
     d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
-      v.memory = 2048
+      v.memory = 8192
     end
   end
   config.vm.define "vip-ies-i" do |d| 
@@ -68,7 +68,7 @@ Vagrant.configure(2) do |config|
 #     d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
     d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
-      v.memory = 2048
+      v.memory = 8192
     end
   end
   config.vm.define "vip-npp" do |d| 
