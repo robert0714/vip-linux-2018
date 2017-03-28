@@ -5,7 +5,8 @@ hosts: [
   { host_ip: "192.168.57.73", host_name: "vip-ies-m"},
   { host_ip: "192.168.57.74", host_name: "vip-ies-i"},
   { host_ip: "192.168.57.75", host_name: "vip-npp"},
-  { host_ip: "192.168.57.76", host_name: "vip-sso-ipki"}  
+  { host_ip: "192.168.57.76", host_name: "vip-sso-ipki"} ,
+  { host_ip: "192.168.57.77", host_name: "vip-sonarqube"} 
 ]
 
 obsolete_services:

@@ -92,7 +92,24 @@ Vagrant.configure(2) do |config|
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
-  end   
+  end
+  config.vm.define "vip-sonarqube" do |d| 
+#    d.vm.box = "bento/centos-7.3"
+    d.vm.box = "ubuntu/trusty64"
+    d.vm.hostname = "vip-sonarqube"
+#    d.vm.network "private_network", ip: "10.100.98.200"
+    d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.77", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
+    default_router = "192.168.57.1"
+    d.vm.provision :shell, inline: "ip route delete default 2>&1 >/dev/null || true; ip route add default via #{default_router}"
+#    d.vm.provision :shell , inline: "systemctl restart network"
+#    d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
+    d.vm.provision :shell, path: "scripts/bootstrap_ansible.sh"
+    d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/vip-devops.yml -c local"    
+    d.vm.provider "virtualbox" do |v|
+      v.memory = 8192
+      v.cpus = 2
+    end
+  end 
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
   end
