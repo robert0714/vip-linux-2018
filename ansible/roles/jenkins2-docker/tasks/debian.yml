@@ -103,6 +103,7 @@
 - name: Container is running
   docker_container:   
     privileged: yes
+    restart_policy: always
     env:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false   -Duser.timezone=Asia/Taipei"
       JENKINS_OPTS: "--prefix=/jenkins" 
