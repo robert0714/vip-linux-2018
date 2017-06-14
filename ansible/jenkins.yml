@@ -5,4 +5,4 @@
     - docker
     - docker-compose
     - jenkins-node
-    - jenkins
+    - jenkins2-docker
