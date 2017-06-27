@@ -20,7 +20,7 @@
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>vip-devops</assignedNode>
+  <assignedNode>sonarqube</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -54,12 +54,24 @@
   <postbuilders>
     <org.jenkinsci.plugins.wildfly.WildflyBuilder plugin="wildfly-deployer@1.0.2">
       <war>target/ude-tutorials02.war</war>
-      <host>192.168.7.185</host>
+      <host>10.100.98.201</host>
       <port>9990</port>
       <username>admin</username>
       <password>admin</password>
       <server></server>
     </org.jenkinsci.plugins.wildfly.WildflyBuilder>
+    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.33">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
+          <configs class="empty-list"/>
+          <projects>ude-restart-jboss</projects>
+          <condition>ALWAYS</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <triggerFromChildProjects>false</triggerFromChildProjects>
+          <buildAllNodesWithLabel>false</buildAllNodesWithLabel>
+        </hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.TriggerBuilder>
   </postbuilders>
   <runPostStepsIfResult>
     <name>FAILURE</name>

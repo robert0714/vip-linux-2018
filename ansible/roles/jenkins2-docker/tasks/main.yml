@@ -17,8 +17,9 @@
     jenkins_pkg_url: "{{ __jenkins_pkg_url }}"
   when: jenkins_pkg_url is not defined
 
-- include: debian.yml
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- name: Define host_ip
+  set_fact:
+    host_ip: "{{ __host_ip }}"
+  when: host_ip is not defined
 
-- include: centos.yml
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+- include: install.yml
