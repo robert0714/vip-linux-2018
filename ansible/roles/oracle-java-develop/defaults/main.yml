@@ -1,21 +1,15 @@
 ---
-
+# file: oracle-java/defaults/main.yml
 #
-# variables needed to be defined in user's playbook
-#
-
-
-
-#
-# user-configurable defaults
+# defaults file
 #
 
-java_version: 8
-java_subversion: 102
+oracle_java_dir_source: '/usr/local/src'
 
-java_download_path: /tmp
-java_download_from_oracle: true
-java_remove_download: true
-java_install_jce: false
+oracle_java_set_as_default: yes
 
-java_set_javahome: false
+oracle_java_version: 8
+oracle_java_version_string: "1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }}"
+oracle_java_ansible_arch_mappings:
+  x86_64: x64
+  i386: i586

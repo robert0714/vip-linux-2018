@@ -1,6 +1,6 @@
 #- hosts: all
-#- hosts: vip-sso-ipki
-- hosts: vip-eip
+- hosts:  vip-ies-o
+#- hosts:   vip-ies-m,vip-ies-i,vip-sso-ipki  
   remote_user: vagrant
   serial: 1
   roles:    
