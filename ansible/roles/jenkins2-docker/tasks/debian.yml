@@ -30,7 +30,7 @@
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false    -Duser.timezone=Asia/Taipei"
       JENKINS_OPTS: "--prefix=/jenkins" 
     name: jenkins
-    image: "jenkins:{{ jenkins_version }}"
+    image: "jenkins/jenkins:{{ jenkins_version }}"
     ports: 
         - "8080:8080"
         - "5000:5000"
@@ -88,7 +88,7 @@
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false     -Duser.timezone=Asia/Taipei"
       JENKINS_OPTS: "--prefix=/jenkins"
     name: jenkins
-    image: "jenkins:{{ jenkins_version }}"
+    image: "jenkins/jenkins:{{ jenkins_version }}"
     ports: 
         - "8080:8080"
         - "5000:5000"
@@ -108,7 +108,7 @@
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false   -Duser.timezone=Asia/Taipei"
       JENKINS_OPTS: "--prefix=/jenkins" 
     name: jenkins
-    image: "jenkins:{{ jenkins_version }}"
+    image: "jenkins/jenkins:{{ jenkins_version }}"
     ports: 
         - "8080:8080"
         - "5000:5000"
@@ -118,8 +118,6 @@
       - /vagrant/.vagrant/machines:/machines
   when: configs_result|changed or plugins_result|changed
   tags: [jenkins]
-
-
 
 
 - pause: seconds=30
