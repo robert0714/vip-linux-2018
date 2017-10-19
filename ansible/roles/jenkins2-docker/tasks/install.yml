@@ -27,7 +27,7 @@
   docker_container:   
     privileged: yes
     env:
-      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false    -Duser.timezone=Asia/Taipei"
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false    -Duser.timezone=Asia/Taipei  -Dhudson.util.ProcessTree.disable=true "
 #      JENKINS_OPTS: "--prefix=/jenkins" 
     name: jenkins
     image: "jenkins/jenkins:{{ jenkins_version }}"
@@ -85,7 +85,7 @@
   docker_container:   
     privileged: yes
     env:
-      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false     -Duser.timezone=Asia/Taipei"
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false     -Duser.timezone=Asia/Taipei -Dhudson.util.ProcessTree.disable=true"
 #      JENKINS_OPTS: "--prefix=/jenkins"
     name: jenkins
     image: "jenkins/jenkins:{{ jenkins_version }}"
@@ -104,7 +104,7 @@
   docker_container:   
     privileged: yes
     env:
-      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false   -Duser.timezone=Asia/Taipei"
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false   -Duser.timezone=Asia/Taipei -Dhudson.util.ProcessTree.disable=true"
 #      JENKINS_OPTS: "--prefix=/jenkins" 
     name: jenkins
     image: "jenkins/jenkins:{{ jenkins_version }}"
