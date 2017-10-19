@@ -51,13 +51,13 @@
     dest: /data/jenkins/war/WEB-INF/lib/wildfly-cli-8.2.1.Final-client.jar
   tags: [jenkins]
 
-- name: Plugins are present
-  copy:
-    src='plugins/{{ item }}'
-    dest='/data/jenkins/plugins/{{ item }}'
-    mode=0777
-  with_items: "{{ plugins_files }}"
-  tags: [jenkins]
+# - name: Plugins are present
+#   copy:
+#     src='plugins/{{ item }}'
+#     dest='/data/jenkins/plugins/{{ item }}'
+#     mode=0777
+#   with_items: "{{ plugins_files }}"
+#   tags: [jenkins]
 
 - name: Configurations are present
   copy:
