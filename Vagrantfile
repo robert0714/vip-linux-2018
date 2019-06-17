@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "vip-eip" do |d| 
-    d.vm.box = "bento/centos-7.3"
+    d.vm.box = "bento/centos-7.6"
     d.vm.hostname = "vip-eip"
 #    d.vm.network "private_network", ip: "10.100.98.201"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.71", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
     end
   end 
   config.vm.define "vip-ies-o" do |d|
-    d.vm.box = "bento/centos-7.3"
+    d.vm.box = "bento/centos-7.6"
     d.vm.hostname = "vip-ies-o"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.72", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
@@ -50,7 +50,7 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "vip-ies-m" do |d| 
-    d.vm.box = "bento/centos-7.3"
+    d.vm.box = "bento/centos-7.6"
     d.vm.hostname = "vip-ies-m"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.73", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
@@ -61,7 +61,7 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "vip-ies-i" do |d| 
-    d.vm.box = "bento/centos-7.3"
+    d.vm.box = "bento/centos-7.6"
     d.vm.hostname = "vip-ies-i"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.74", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
@@ -72,7 +72,7 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "vip-npp" do |d| 
-    d.vm.box = "bento/centos-7.3"
+    d.vm.box = "bento/centos-7.6"
     d.vm.hostname = "vip-npp"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.75", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #     default_router = "192.168.57.1"
@@ -83,7 +83,7 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "vip-sso-ipki" do |d|
-    d.vm.box = "bento/centos-7.3"
+    d.vm.box = "bento/centos-7.6"
     d.vm.hostname = "vip-sso-ipki"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.76", auto_config: "false", netmask: "255.255.255.0" , gateway: "192.168.57.1"
 #    default_router = "192.168.57.1"
